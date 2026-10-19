@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ドクリア共栄圏の架空世界観、理念、組織、活動、沿革を紹介する創作ウェブサイト。">
+  <meta name="theme-color" content="#17101e">
+  <title>ドクリア共栄圏</title>
+  <link rel="icon" href="dodoria.png" type="image/png">
+
+  <!-- 編集用：色はここでまとめて変更できます。JavaScript・外部CSSはありません。 -->
+  <style>
+    :root { --bg:#17101e; --surface:#24192c; --surface2:#31213b; --line:#51374f; --pink:#ff75bc; --light:#fff8fd; --muted:#d5c8d6; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--light); background:var(--bg); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif; line-height:1.85; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--pink); }
+    a:focus-visible, summary:focus-visible { outline:2px solid var(--pink); outline-offset:5px; }
+    h1,h2,h3,p { margin-top:0; }
+    h2 { font-size:clamp(26px,4vw,36px); line-height:1.4; margin:8px 0 15px; }
+    h3 { font-size:18px; margin-bottom:8px; }
+    p { color:var(--muted); }
+    .wrap { width:min(100% - 36px,1040px); margin:auto; }
+    .section { padding:76px 0; border-top:1px solid var(--line); scroll-margin-top:20px; }
+    .eyebrow { color:var(--pink); font-size:12px; font-weight:800; letter-spacing:.15em; }
+    .lead { max-width:760px; margin-bottom:28px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { padding:25px; border:1px solid var(--line); border-radius:15px; background:var(--surface); }
+    .card p:last-child { margin-bottom:0; }
+    .small { font-size:13px; }
+    .pill { display:inline-block; padding:5px 12px; border:1px solid #a75e93; border-radius:99px; color:#ffd7eb; font-size:12px; }
+    .button { display:inline-block; background:var(--pink); color:#241024; border-radius:9px; padding:10px 24px; font-weight:800; }
+    .button:hover { color:#241024; background:#ffadd4; }
+    header { background:#17101ef0; border-bottom:1px solid var(--line); }
+    .header { padding:14px 0; display:flex; gap:20px; align-items:center; justify-content:space-between; }
+    .brand { display:flex; gap:12px; align-items:center; font-size:18px; font-weight:900; white-space:nowrap; }
+    .brand-mark { width:43px; height:43px; flex:none; border-radius:10px; background:#fff url("dodoria.png") center/contain no-repeat; }
+    nav { display:flex; flex-wrap:wrap; gap:7px 15px; font-size:13px; }
+    .hero { overflow:hidden; background:radial-gradient(ellipse at 83% 45%,#643050 0%,#2d1c35 35%,var(--bg) 73%); }
+    .hero-body { min-height:545px; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:30px; padding:70px 0; }
+    .hero h1 { font-size:clamp(43px,6.5vw,72px); line-height:1.3; margin:17px 0; letter-spacing:.035em; }
+    .hero h1 span { color:var(--pink); }
+    .hero p { max-width:530px; }
+    .hero .button { margin-top:8px; }
+    .art { position:relative; width:100%; aspect-ratio:1; background-position:center; background-size:contain; background-repeat:no-repeat; user-select:none; -webkit-user-select:none; -webkit-user-drag:none; }
+    .art::after { content:""; position:absolute; inset:0; z-index:1; }
+    .art-gif { background-image:url("dodoriasan.gif"); filter:drop-shadow(0 18px 35px #ef4fa844); }
+    .art-png { background-image:url("dodoria.png"); border-radius:14px; background-color:#fff; }
+    .hero-art { max-width:430px; justify-self:center; }
+    .metrics { display:flex; gap:20px; flex-wrap:wrap; padding-top:17px; color:var(--muted); font-size:13px; }
+    .metrics b { color:#fff; font-size:17px; margin-right:6px; }
+    .split { display:grid; grid-template-columns:260px 1fr; align-items:center; gap:32px; }
+    .portrait { max-width:260px; margin:auto; }
+    .split ul { color:var(--muted); padding-left:20px; }
+    .quote { padding:17px 22px; border-left:3px solid var(--pink); background:var(--surface2); color:var(--light); border-radius:0 8px 8px 0; }
+    .timeline { border-left:2px solid var(--line); padding-left:22px; margin-left:8px; }
+    .event { position:relative; margin:0 0 25px; }
+    .event::before { content:""; position:absolute; width:10px; height:10px; background:var(--pink); border-radius:50%; left:-28px; top:10px; }
+    .event h3 { margin:0; }
+    .event p { margin:3px 0; }
+    .date { color:var(--pink); font-weight:800; font-size:13px; }
+    .news { display:grid; grid-template-columns:120px 1fr; gap:15px; padding:20px 2px; border-bottom:1px solid var(--line); }
+    .news strong { color:var(--light); }
+    .news p { margin:4px 0 0; }
+    details { background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin-bottom:11px; }
+    summary { cursor:pointer; font-weight:800; }
+    details p { margin:12px 0 0; }
+    .note { font-size:13px; color:#e9d2e3; border:1px solid var(--line); background:#271c2d; border-radius:10px; padding:13px 18px; }
+    footer { padding:35px 0; text-align:center; }
+    footer p { margin:4px 0; font-size:12px; }
+    @media (max-width:760px) {
+      .header { align-items:flex-start; flex-direction:column; gap:13px; }
+      nav { gap:8px 13px; }
+      .hero-body { grid-template-columns:1fr; text-align:center; padding:48px 0; }
+      .hero-art { grid-row:1; width:min(75%,290px); }
+      .hero p { margin-left:auto; margin-right:auto; }
+      .metrics { justify-content:center; }
+      .grid { grid-template-columns:1fr; }
+      .split { grid-template-columns:1fr; }
+      .section { padding:53px 0; }
+      .news { grid-template-columns:1fr; gap:3px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー：メニューを増減するときは、以下の a タグを編集してください。 -->
+  <header id="top">
+    <div class="wrap header">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>ドクリア共栄圏</a>
+      <nav aria-label="サイト内ナビゲーション">
+        <a href="#about">共栄圏とは</a><a href="#philosophy">理念</a><a href="#organization">組織</a>
+        <a href="#activities">活動</a><a href="#history">沿革</a><a href="#news">広報</a>
+        <a href="#membership">参加制度</a><a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- トップ：見出しとキャッチコピー -->
+    <section class="hero" aria-labelledby="site-title">
+      <div class="wrap hero-body">
+        <div>
+          <span class="pill">架空世界観・創作プロジェクト</span>
+          <h1 id="site-title">ドクリア<br><span>共栄圏</span></h1>
+          <p>個性を結び、創造を育み、ひとつの未来を描く。<br>ここは、ドクリア総帥を象徴とする架空の共同体「ドクリア共栄圏」の記録と物語を収めた公式設定サイトです。</p>
+          <a class="button" href="#about">共栄圏の世界を知る →</a>
+          <div class="metrics"><span><b>2024</b>創設年（設定）</span><span><b>3</b>つの中央局</span><span><b>7</b>つの架空地区</span></div>
+        </div>
+        <!-- 画像保護：img タグではなく CSS背景で表示。通常の画像ドラッグ保存を抑制します。 -->
+        <div class="art art-gif hero-art" role="img" aria-label="ピンク色のドクリア総帥のアニメーションイラスト"></div>
+      </div>
+    </section>
+
+    <!-- 1. 共栄圏とは：説明文は自由に書き換えられます。 -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <span class="eyebrow">ABOUT THE COMMONWEALTH</span>
+        <h2>ドクリア共栄圏とは</h2>
+        <p class="lead">ドクリア共栄圏は、架空世界「ドクリア領域」に暮らす人々が、文化・学問・創作を通じて結びつくという設定の共同体です。ドクリア総帥を精神的な象徴に掲げ、異なる個性が互いを高め合う社会を物語の中心に据えています。</p>
+        <div class="grid">
+          <article class="card"><span class="eyebrow">01 / IDENTITY</span><h3>共同体の名称</h3><p>正式名称は「ドクリア共栄圏」。独立した七地区が協調し、それぞれの文化を守りながら発展する架空の連合体です。</p></article>
+          <article class="card"><span class="eyebrow">02 / MOTTO</span><h3>基本標語</h3><p>「異なる輝き、ひとつの未来」。能力や立場の違いを越えて、互いの強みを持ち寄ることを理想としています。</p></article>
+          <article class="card"><span class="eyebrow">03 / SYMBOL</span><h3>共栄圏の象徴</h3><p>鋭い角と大きな笑みを持つドクリアの肖像を、勇気・独創性・しなやかな強さの象徴として採用しています。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 理念と憲章 -->
+    <section class="section" id="philosophy">
+      <div class="wrap">
+        <span class="eyebrow">PHILOSOPHY & CHARTER</span>
+        <h2>共栄の理念と三つの原則</h2>
+        <p class="lead">共栄圏の根幹には「創造・尊重・連帯」の三原則があります。これは物語内で定められた「ドクリア共栄憲章」の精神です。</p>
+        <div class="grid">
+          <article class="card"><h3>創造</h3><p>新しい作品や知識を生み出す挑戦を奨励する。失敗もまた、新しい発見につながる大切な過程と考えます。</p></article>
+          <article class="card"><h3>尊重</h3><p>出身地区や得意分野によって価値を決めず、互いの意見と文化を尊重することを基本とします。</p></article>
+          <article class="card"><h3>連帯</h3><p>困難に直面したときは、地区や役職を越えて助け合い、全体の調和と個人の成長を両立させます。</p></article>
+        </div>
+        <div class="quote" style="margin-top:22px">「共栄とは、同じ色に染まることではない。異なる色が並び、ひとつの景色をつくることである。」 — 共栄憲章・序文（架空）</div>
+      </div>
+    </section>
+
+    <!-- 3. 組織と総帥 -->
+    <section class="section" id="organization">
+      <div class="wrap">
+        <span class="eyebrow">ORGANIZATION</span>
+        <h2>総帥と中央組織</h2>
+        <div class="card split" style="margin-bottom:18px">
+          <div class="art art-gif portrait" role="img" aria-label="ドクリア総帥の肖像アニメーション"></div>
+          <div>
+            <span class="pill">共栄圏最高象徴</span>
+            <h3 style="font-size:27px;margin-top:10px">ドクリア総帥</h3>
+            <p>共栄圏建設の物語における発起者であり、共同体の理念を体現する存在。豪快な笑みと大胆な発想で知られ、「挑戦する者の道を閉ざすな」を信条に掲げています。</p>
+            <ul><li>役職：共栄圏総帥（架空）</li><li>記念日：毎年4月12日「共栄の日」</li><li>座右の銘：「笑え、そして切り拓け」</li></ul>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card"><h3>文化創造局</h3><p>創作物、伝承、祭典を担当。各地区の文化を記録し、共栄芸術祭の企画を進める部局です。</p></article>
+          <article class="card"><h3>情報広報局</h3><p>公式記録、通信、広報を担当。議事録や年報を整理し、共同体の出来事を分かりやすく届けます。</p></article>
+          <article class="card"><h3>地区調整局</h3><p>七地区の意見交換を支援する部局。意見の違いを話し合いで解決するための調整役を担います。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 架空の活動内容 -->
+    <section class="section" id="activities">
+      <div class="wrap">
+        <span class="eyebrow">ACTIVITIES</span>
+        <h2>共栄圏の主な活動</h2>
+        <p class="lead">作中の共栄圏では、文化活動を中心にさまざまな催しが開催されています。いずれも創作上の行事・制度です。</p>
+        <div class="grid">
+          <article class="card"><span class="eyebrow">CULTURE</span><h3>共栄芸術祭</h3><p>七地区から絵画、音楽、物語、デザインが集まる年に一度の祭典。優れた作品に「ドクリア創造賞」を授与します。</p></article>
+          <article class="card"><span class="eyebrow">ASSEMBLY</span><h3>七地区評議会</h3><p>毎月第一土曜日に開かれる架空の協議会。各地区の代表が交流企画や文化保存について話し合います。</p></article>
+          <article class="card"><span class="eyebrow">ARCHIVE</span><h3>共栄記録庫</h3><p>創設文書、紋章、年表、催事記録を収集する資料室。過去の出来事を未来へつなぐことを使命としています。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 紋章・沿革 -->
+    <section class="section" id="history">
+      <div class="wrap">
+        <span class="eyebrow">SYMBOL & HISTORY</span>
+        <h2>象徴と沿革</h2>
+        <div class="card split" style="margin-bottom:28px">
+          <div class="art art-png portrait" role="img" aria-label="ドクリア共栄圏のピンク色のシンボルイラスト"></div>
+          <div><h3>ドクリアの肖像</h3><p>鮮烈なピンクは「創造の情熱」、鋭い角は「困難へ向かう決意」、大胆な笑みは「未来を楽しむ心」を表すという設定です。共栄圏の印章や記念式典の図案として登場します。</p><p class="small">画像は本サイトの創作ビジュアルです。無断転載・再配布はご遠慮ください。</p></div>
+        </div>
+        <h3>共栄圏略年表（すべて架空）</h3>
+        <div class="timeline">
+          <div class="event"><span class="date">2024年4月</span><h3>共栄圏構想の宣言</h3><p>ドクリア総帥が、七地区の文化的協調を目指す構想を発表したとされる。</p></div>
+          <div class="event"><span class="date">2025年2月</span><h3>中央三局の設立</h3><p>文化創造局、情報広報局、地区調整局が組織され、交流制度が整備される。</p></div>
+          <div class="event"><span class="date">2026年4月</span><h3>共栄憲章の制定</h3><p>「創造・尊重・連帯」の三原則を掲げた架空の憲章が公布される。</p></div>
+          <div class="event"><span class="date">2026年10月</span><h3>公式記録サイトの編纂</h3><p>歴史と活動を体系的に紹介するための記録サイトが作中で編纂される。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 架空のお知らせ：この .news をコピーすると新しい記事を増やせます。 -->
+    <section class="section" id="news">
+      <div class="wrap">
+        <span class="eyebrow">NEWS & REPORTS</span>
+        <h2>広報・お知らせ</h2>
+        <p class="lead">以下はドクリア共栄圏の世界観に基づく架空の広報記事です。</p>
+        <article class="news"><span class="date">2026.10.18</span><div><strong>共栄記録庫・秋季資料展の開催が決定</strong><p>歴代紋章や祭典の設定資料を紹介する特別展示が、中央記録殿で開催されることになりました。</p></div></article>
+        <article class="news"><span class="date">2026.10.12</span><div><strong>第3回 共栄芸術祭の受賞作品を発表</strong><p>七地区から応募された創作作品の中から、ドクリア創造賞の受賞作が選定されました。</p></div></article>
+        <article class="news"><span class="date">2026.10.01</span><div><strong>七地区評議会、文化交流年次計画を採択</strong><p>共同制作、資料保存、地区間交流を柱とする新しい年次計画が承認されました。</p></div></article>
+      </div>
+    </section>
+
+    <!-- 7. 参加制度：実際の申込機能はありません。 -->
+    <section class="section" id="membership">
+      <div class="wrap">
+        <span class="eyebrow">MEMBERSHIP</span>
+        <h2>共栄圏の参加制度</h2>
+        <p class="lead">物語の中では、共栄圏の理念に賛同する住民が、自分に合った形で活動に参加できます。以下は架空の階級・制度です。</p>
+        <div class="grid">
+          <article class="card"><h3>一般構成員</h3><p>各地区の日々の交流、文化行事、共同制作に参加する基本的な立場です。</p></article>
+          <article class="card"><h3>文化協力員</h3><p>創作祭や記録庫の運営を支える担当者。作品の整理や展示企画に協力します。</p></article>
+          <article class="card"><h3>地区代表</h3><p>各地区の文化と意見を評議会へ届け、交流計画の調整を行う代表者です。</p></article>
+        </div>
+        <p class="note" style="margin-top:20px">この参加制度は創作設定です。このウェブサイトでは実際の入会受付、個人情報の収集、会費徴収は行っていません。</p>
+      </div>
+    </section>
+
+    <!-- 8. よくある質問：details はJavaScript不要で開閉できます。 -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+        <h2>よくある質問</h2>
+        <details><summary>ドクリア共栄圏は実在する団体ですか？</summary><p>いいえ。このウェブサイトの組織、歴史、イベント、役職などは架空の設定です。創作作品としてお楽しみください。</p></details>
+        <details><summary>ドクリア総帥とは誰ですか？</summary><p>架空の共同体を象徴するキャラクターです。共栄圏の理念を伝える役割を担っています。</p></details>
+        <details><summary>七地区とはどのような地域ですか？</summary><p>文化や特色の異なる七つの架空地区の総称です。互いの独自性を尊重し、評議会を通じて協力しています。</p></details>
+        <details><summary>実際に入会やイベントへの参加はできますか？</summary><p>このページに掲載している入会制度や催事は創作上の設定であり、実際の募集や開催は行っていません。</p></details>
+        <details><summary>掲載画像を自由に利用できますか？</summary><p>無断での再配布、転載、加工利用はご遠慮ください。閲覧のために画像を表示していますが、技術的に複製を完全に防止するものではありません。</p></details>
+      </div>
+    </section>
+  </main>
+
+  <!-- 最下部 -->
+  <footer class="wrap">
+    <a href="#top">▲ ページの先頭へ</a>
+    <p>ドクリア共栄圏 — 創作世界観・公式設定サイト</p>
+    <p>本ページに登場する団体・制度・行事・歴史はすべて架空です。</p>
+    <p>&copy; 2026 ドクリア共栄圏. 画像の無断転載・再配布禁止。</p>
+  </footer>
+</body>
+</html>
